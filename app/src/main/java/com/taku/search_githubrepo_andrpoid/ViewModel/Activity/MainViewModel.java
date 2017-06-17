@@ -2,12 +2,9 @@ package com.taku.search_githubrepo_andrpoid.ViewModel.Activity;
 
 import android.content.Context;
 import android.databinding.ObservableArrayList;
-import android.databinding.ObservableField;
-import android.util.Log;
 
-import com.taku.search_githubrepo_andrpoid.Model.API.Repo;
+import com.taku.search_githubrepo_andrpoid.Model.Repo;
 import com.taku.search_githubrepo_andrpoid.Network.RepoAPI;
-import com.taku.search_githubrepo_andrpoid.UI.Adapter.MainAdapter;
 import com.taku.search_githubrepo_andrpoid.ViewModel.ViewModel;
 
 import java.util.List;

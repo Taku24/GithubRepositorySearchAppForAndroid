@@ -6,10 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.widget.TextView;
 
-import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.taku.search_githubrepo_andrpoid.R;
 import com.taku.search_githubrepo_andrpoid.UI.Adapter.MainAdapter;
 import com.taku.search_githubrepo_andrpoid.ViewModel.Activity.MainViewModel;
@@ -27,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         viewModel = new MainViewModel(this);
         binding.setViewModel(viewModel);
 
-        MainAdapter adapter = new MainAdapter(viewModel.mRepoList);
+        MainAdapter adapter = new MainAdapter(this, viewModel.mRepoList);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         binding.recyclerView.setLayoutManager(layoutManager);

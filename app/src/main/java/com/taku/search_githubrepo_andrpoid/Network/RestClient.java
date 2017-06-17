@@ -1,7 +1,5 @@
 package com.taku.search_githubrepo_andrpoid.Network;
 
-import android.content.Context;
-
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -26,7 +24,6 @@ public class RestClient {
             public Response intercept(Chain chain) throws IOException {
                 Request original = chain.request();
 
-                //header設定
                 Request request = original.newBuilder()
                         .header("Accept", "application/json")
                         .method(original.method(), original.body())

@@ -1,7 +1,7 @@
 package com.taku.search_githubrepo_andrpoid.Network;
 
 
-import com.taku.search_githubrepo_andrpoid.Model.API.Repo;
+import com.taku.search_githubrepo_andrpoid.Model.Repo;
 
 import java.util.List;
 

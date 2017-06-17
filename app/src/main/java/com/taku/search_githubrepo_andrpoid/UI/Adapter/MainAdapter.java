@@ -1,13 +1,16 @@
 package com.taku.search_githubrepo_andrpoid.UI.Adapter;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableList;
+import android.hardware.Camera;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.taku.search_githubrepo_andrpoid.Model.API.Repo;
+import com.squareup.picasso.Picasso;
+import com.taku.search_githubrepo_andrpoid.Model.Repo;
 import com.taku.search_githubrepo_andrpoid.R;
 import com.taku.search_githubrepo_andrpoid.databinding.ItemRepoBinding;
 
@@ -18,8 +21,11 @@ import com.taku.search_githubrepo_andrpoid.databinding.ItemRepoBinding;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder> {
 
     private ObservableList<Repo> mRepoList;
+    private Context mContext;
 
-    public MainAdapter(ObservableList<Repo> repoList) {
+
+    public MainAdapter(Context context, ObservableList<Repo> repoList) {
+        mContext = context;
         mRepoList = repoList;
         mRepoList.addOnListChangedCallback(new ObservableList.OnListChangedCallback<ObservableList<Repo>>() {
             @Override
@@ -59,6 +65,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     public void onBindViewHolder(MainViewHolder holder, int position) {
         final Repo repo = mRepoList.get(position);
         holder.getBinding().repoTitle.setText(repo.repoName);
+        holder.getBinding().starCount.setText(mContext.getText(R.string.star_count) + repo.starCount);
+        holder.getBinding().lang.setText(mContext.getText(R.string.lang) + repo.lang);
+        Picasso.with(mContext).load(repo.owner.avatarUrl).into(holder.getBinding().imageView);
     }
 
     @Override
