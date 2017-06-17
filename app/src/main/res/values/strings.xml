@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">search_githubrepo_andrpoid</string>
+    <string name="toolbar_title">SearchGithubRepo</string>
 </resources>
