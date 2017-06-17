@@ -2,6 +2,7 @@ package com.taku.search_githubrepo_andrpoid.ViewModel.Activity;
 
 import android.content.Context;
 import android.databinding.ObservableArrayList;
+import android.databinding.ObservableField;
 import android.util.Log;
 
 import com.taku.search_githubrepo_andrpoid.Model.API.Repo;
@@ -48,6 +49,7 @@ public class MainViewModel extends ViewModel{
 
                     @Override
                     public void onNext(List<Repo> repoList) {
+                        mRepoList.clear();
                         mRepoList.addAll(repoList);
                     }
                 })

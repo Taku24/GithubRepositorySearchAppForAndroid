@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/light_color</item>
     </style>
 
+    <style name="MaterialSearchViewStyle">
+        <item name="searchBackground">@color/gray_50</item>
+    </style>
+
 </resources>
