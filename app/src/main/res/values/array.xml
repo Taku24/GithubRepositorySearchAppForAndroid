@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="sort_items">
+        <item>select</item>
         <item>stars</item>
         <item>forks</item>
         <item>updated</item>
     </string-array>
 
     <string-array name="order_items">
+        <item>select</item>
         <item>asc</item>
         <item>desc</item>
     </string-array>

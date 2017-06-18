@@ -8,4 +8,6 @@
     <string name="sort">sort</string>
     <string name="order">order</string>
     <string name="OK">OK</string>
+
+    <string name="select">select</string>
 </resources>

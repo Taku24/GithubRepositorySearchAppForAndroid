@@ -60,6 +60,78 @@ public class MainViewModel extends ViewModel{
         );
     }
 
+    public void fetchSortRepoList(String query, String sort){
+        compositeSubscription.add(RepoAPI
+                .fetchSortRepoList(query, sort)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<Repo>>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<Repo> repoList) {
+                        mRepoList.clear();
+                        mRepoList.addAll(repoList);
+                    }
+                })
+        );
+    }
+
+    public void fetchOrderRepoList(String query, String order){
+        compositeSubscription.add(RepoAPI
+                .fetchOrderRepoList(query, order)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<Repo>>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<Repo> repoList) {
+                        mRepoList.clear();
+                        mRepoList.addAll(repoList);
+                    }
+                })
+        );
+    }
+
+    public void fetchBothRepoList(String query, String sort, String order){
+        compositeSubscription.add(RepoAPI
+                .fetchBothRepoList(query, sort, order)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<Repo>>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<Repo> repoList) {
+                        mRepoList.clear();
+                        mRepoList.addAll(repoList);
+                    }
+                })
+        );
+    }
+
     @Override
     public void onResume() {
 
