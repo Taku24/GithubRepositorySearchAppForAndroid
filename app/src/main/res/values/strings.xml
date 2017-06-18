@@ -4,4 +4,8 @@
 
     <string name="star_count">Star:</string>
     <string name="lang">lang:</string>
+
+    <string name="sort">sort</string>
+    <string name="order">order</string>
+    <string name="OK">OK</string>
 </resources>

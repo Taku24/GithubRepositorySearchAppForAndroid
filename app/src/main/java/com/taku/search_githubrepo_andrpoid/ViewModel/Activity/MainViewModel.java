@@ -2,6 +2,7 @@ package com.taku.search_githubrepo_andrpoid.ViewModel.Activity;
 
 import android.content.Context;
 import android.databinding.ObservableArrayList;
+import android.view.View;
 
 import com.taku.search_githubrepo_andrpoid.Model.Repo;
 import com.taku.search_githubrepo_andrpoid.Network.RepoAPI;
@@ -19,13 +20,19 @@ import rx.android.schedulers.AndroidSchedulers;
 public class MainViewModel extends ViewModel{
 
     public ObservableArrayList<Repo> mRepoList = new ObservableArrayList<>();
+    private Context mContext;
 
     public MainViewModel(Context context) {
         super(context);
+        mContext = context;
     }
 
     @Override
     public void onCreate() {
+
+    }
+
+    public void settingClicked(View view){
 
     }
 
