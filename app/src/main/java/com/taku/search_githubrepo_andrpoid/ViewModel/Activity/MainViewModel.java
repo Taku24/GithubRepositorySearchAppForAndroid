@@ -20,19 +20,13 @@ import rx.android.schedulers.AndroidSchedulers;
 public class MainViewModel extends ViewModel{
 
     public ObservableArrayList<Repo> mRepoList = new ObservableArrayList<>();
-    private Context mContext;
 
     public MainViewModel(Context context) {
         super(context);
-        mContext = context;
     }
 
     @Override
     public void onCreate() {
-
-    }
-
-    public void settingClicked(View view){
 
     }
 

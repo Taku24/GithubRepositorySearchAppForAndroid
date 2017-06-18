@@ -3,7 +3,6 @@ package com.taku.search_githubrepo_andrpoid.UI.Adapter;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableList;
-import android.hardware.Camera;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
