@@ -2,7 +2,6 @@ package com.taku.search_githubrepo_andrpoid.ViewModel.Activity;
 
 import android.content.Context;
 import android.databinding.ObservableArrayList;
-import android.view.View;
 
 import com.taku.search_githubrepo_andrpoid.Model.Repo;
 import com.taku.search_githubrepo_andrpoid.Network.RepoAPI;
@@ -30,9 +29,9 @@ public class MainViewModel extends ViewModel{
 
     }
 
-    public void fetchRepoList(String query){
+    public void fetchRepoList(String query, String order){
         compositeSubscription.add(RepoAPI
-                .fetchRepoList(query)
+                .fetchRepoList(query, order)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<List<Repo>>() {
                     @Override
@@ -54,57 +53,9 @@ public class MainViewModel extends ViewModel{
         );
     }
 
-    public void fetchSortRepoList(String query, String sort){
+    public void fetchSortRepoList(String query, String sort, String order){
         compositeSubscription.add(RepoAPI
-                .fetchSortRepoList(query, sort)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<Repo>>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onNext(List<Repo> repoList) {
-                        mRepoList.clear();
-                        mRepoList.addAll(repoList);
-                    }
-                })
-        );
-    }
-
-    public void fetchOrderRepoList(String query, String order){
-        compositeSubscription.add(RepoAPI
-                .fetchOrderRepoList(query, order)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<Repo>>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onNext(List<Repo> repoList) {
-                        mRepoList.clear();
-                        mRepoList.addAll(repoList);
-                    }
-                })
-        );
-    }
-
-    public void fetchBothRepoList(String query, String sort, String order){
-        compositeSubscription.add(RepoAPI
-                .fetchBothRepoList(query, sort, order)
+                .fetchSortRepoList(query, sort, order)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<List<Repo>>() {
                     @Override

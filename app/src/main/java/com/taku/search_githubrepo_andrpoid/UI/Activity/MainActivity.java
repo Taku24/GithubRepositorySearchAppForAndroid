@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private String mSort = "";
     private String mOrder = "";
     private boolean isSort = false;
-    private boolean isOrder = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         binding.recyclerView.setAdapter(adapter);
         binding.sortSpinner.setOnItemSelectedListener(this);
         binding.orderSpinner.setOnItemSelectedListener(this);
+        mOrder = binding.orderSpinner.getSelectedItem().toString();
         binding.searchView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -74,13 +74,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
 
             case R.id.orderSpinner:
-                if (binding.orderSpinner.getSelectedItem().toString().equals(getText(R.string.select))) {
-                    mOrder = "";
-                    isOrder = false;
-                } else {
-                    mOrder = binding.orderSpinner.getSelectedItem().toString();
-                    isOrder = true;
-                }
+                mOrder = binding.orderSpinner.getSelectedItem().toString();
                 break;
 
             default:
@@ -90,16 +84,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void fetchListData() {
-        if(isSort && isOrder){
-            viewModel.fetchBothRepoList(mQuery, mSort, mOrder);
+        if (isSort) {
+            viewModel.fetchSortRepoList(mQuery, mSort, mOrder);
         } else {
-            if(isSort){
-                viewModel.fetchSortRepoList(mQuery, mSort);
-            } else if(isOrder){
-                viewModel.fetchOrderRepoList(mQuery, mOrder);
-            } else {
-                viewModel.fetchRepoList(mQuery);
-            }
+            viewModel.fetchRepoList(mQuery, mOrder);
         }
     }
 
