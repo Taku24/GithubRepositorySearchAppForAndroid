@@ -17,13 +17,13 @@ import com.taku.search_githubrepo_andrpoid.databinding.ItemRepoBinding;
  * Created by TAKU on 2017/06/17.
  */
 
-public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder> {
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder> {
 
     private ObservableList<Repo> mRepoList;
     private Context mContext;
 
 
-    public MainAdapter(Context context, ObservableList<Repo> repoList) {
+    public ListAdapter(Context context, ObservableList<Repo> repoList) {
         mContext = context;
         mRepoList = repoList;
         mRepoList.addOnListChangedCallback(new ObservableList.OnListChangedCallback<ObservableList<Repo>>() {

@@ -16,11 +16,11 @@ import rx.android.schedulers.AndroidSchedulers;
  * Created by TAKU on 2017/06/17.
  */
 
-public class MainViewModel extends ViewModel{
+public class ListViewModel extends ViewModel{
 
     public ObservableArrayList<Repo> mRepoList = new ObservableArrayList<>();
 
-    public MainViewModel(Context context) {
+    public ListViewModel(Context context) {
         super(context);
     }
 

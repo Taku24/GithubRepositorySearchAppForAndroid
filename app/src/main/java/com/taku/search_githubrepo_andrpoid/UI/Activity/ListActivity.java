@@ -10,14 +10,14 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import com.taku.search_githubrepo_andrpoid.R;
-import com.taku.search_githubrepo_andrpoid.UI.Adapter.MainAdapter;
-import com.taku.search_githubrepo_andrpoid.ViewModel.Activity.MainViewModel;
-import com.taku.search_githubrepo_andrpoid.databinding.ActivityMainBinding;
+import com.taku.search_githubrepo_andrpoid.UI.Adapter.ListAdapter;
+import com.taku.search_githubrepo_andrpoid.ViewModel.Activity.ListViewModel;
+import com.taku.search_githubrepo_andrpoid.databinding.ActivityListBinding;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class ListActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private ActivityMainBinding binding;
-    private MainViewModel viewModel;
+    private ActivityListBinding binding;
+    private ListViewModel viewModel;
     private String mQuery = "";
     private String mSort = "";
     private String mOrder = "";
@@ -25,12 +25,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_list);
         super.onCreate(savedInstanceState);
-        viewModel = new MainViewModel(this);
+        viewModel = new ListViewModel(this);
         binding.setViewModel(viewModel);
 
-        MainAdapter adapter = new MainAdapter(this, viewModel.mRepoList);
+        ListAdapter adapter = new ListAdapter(this, viewModel.mRepoList);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         binding.recyclerView.setLayoutManager(layoutManager);
