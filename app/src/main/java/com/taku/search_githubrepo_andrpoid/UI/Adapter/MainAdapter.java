@@ -28,7 +28,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         mRepoList = repoList;
         mRepoList.addOnListChangedCallback(new ObservableList.OnListChangedCallback<ObservableList<Repo>>() {
             @Override
-            public void onChanged(ObservableList<Repo> repos) {
+            public void onChanged(ObservableList<Repo> repoList) {
                 notifyDataSetChanged();
             }
 
