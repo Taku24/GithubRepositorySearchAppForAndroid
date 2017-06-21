@@ -4,6 +4,7 @@ package com.taku.search_githubrepo_andrpoid.Network;
 import com.taku.search_githubrepo_andrpoid.Model.Repo;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
 import rx.functions.Func1;
@@ -24,6 +25,7 @@ public class RepoAPI {
                         return repoListResponse.repoList;
                     }
                 })
+                .debounce(1, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io());
     }
 
@@ -36,6 +38,7 @@ public class RepoAPI {
                         return repoListResponse.repoList;
                     }
                 })
+                .debounce(1, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io());
     }
 

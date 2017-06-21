@@ -15,7 +15,9 @@ import com.taku.search_githubrepo_andrpoid.Network.RepoAPI;
 import com.taku.search_githubrepo_andrpoid.R;
 import com.taku.search_githubrepo_andrpoid.ViewModel.ViewModel;
 
+import java.sql.Time;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -101,6 +103,7 @@ public class ListViewModel extends ViewModel {
     private void fetchRepoList() {
         compositeSubscription.add(RepoAPI
                 .fetchRepoList(mQuery, mOrder)
+                .debounce(1, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<List<Repo>>() {
                     @Override
@@ -125,6 +128,7 @@ public class ListViewModel extends ViewModel {
     private void fetchSortRepoList() {
         compositeSubscription.add(RepoAPI
                 .fetchSortRepoList(mQuery, mSort, mOrder)
+                .debounce(1, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<List<Repo>>() {
                     @Override
