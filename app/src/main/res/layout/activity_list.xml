@@ -48,8 +48,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                app:addTextChangedListener="@{ViewModel.textWatcher}"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:inputType="text"
+                app:addTextChangedListener="@{ViewModel.textWatcher}" />
 
             <LinearLayout
                 android:id="@+id/optionLayout"
